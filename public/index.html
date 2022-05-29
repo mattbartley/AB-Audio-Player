@@ -23,24 +23,25 @@
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.core.min.js"
-      integrity="sha512-+wqa4/aOL4vwhL637A4p+6epqhUHDqpEfYJa1+PlzlMf908CSOb3xtIeKwZWh5Q0Q/R2nYUKxH4vvcQg+k8KKQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
     <div class="player__wrapper">
-      <button class="ab__button" id="a__button" onclick="playSoundA()">
+      <button
+        class="ab__button"
+        id="a__button"
+        onclick="playSoundA()"
+        disabled="true"
+      >
         A
       </button>
       <button
         class="play__pause__button"
         id="play__button"
         onclick="playSoundA()"
+        disabled="true"
       >
         Play
       </button>
@@ -48,11 +49,16 @@
         class="play__pause__button"
         id="stop__button"
         onclick="stopSounds()"
-        disabled
+        disabled="true"
       >
         Stop
       </button>
-      <button class="ab__button" id="b__button" onclick="playSoundB()">
+      <button
+        class="ab__button"
+        id="b__button"
+        onclick="playSoundB()"
+        disabled="true"
+      >
         B
       </button>
     </div>
