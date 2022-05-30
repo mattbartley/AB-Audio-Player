@@ -30,6 +30,7 @@ const stopIcon = '<i class="fa-solid fa-stop"></i>';
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     playButton.disabled = false;
+}
 
 //Default loading state for each sound
 var soundAReady = false;
