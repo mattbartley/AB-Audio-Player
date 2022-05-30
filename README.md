@@ -5,22 +5,6 @@ For example, comparing the difference between different mixes and production pro
 
 <div id="top"></div>
 
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/mattbartley/AB-Audio-Player">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">A/B Audio Player</h3>
-
   <p align="center">
     A HTML/CSS/Javascript-only audio player that allows you to toggle between two versions of the same audio file - with NO dependencies.
 What's it for? One pratical reason is the side-by-side comparison of different audio mixes/production processes.
