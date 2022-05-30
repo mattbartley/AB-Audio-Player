@@ -15,14 +15,6 @@ soundB.setAttribute("hidden", "true");
 soundB.setAttribute("onplaying", "stepB()");
 document.body.append(soundB);
 
-const checkMobile = () => {
-  let isMobile = window.matchMedia(
-    "only screen and (max-width: 760px)"
-  ).matches;
-
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    playButton.disabled = false;
-};
 
 //Get button elements
 const aButton = document.getElementById("a__button");
@@ -35,6 +27,9 @@ const progressFill = document.getElementById("progress__fill");
 const playIcon = '<i class="fa-solid fa-play"></i>';
 const pauseIcon = '<i class="fa-solid fa-pause"></i>';
 const stopIcon = '<i class="fa-solid fa-stop"></i>';
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    playButton.disabled = false;
 
 //Default loading state for each sound
 var soundAReady = false;
