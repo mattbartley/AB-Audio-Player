@@ -76,22 +76,32 @@ button {
   border-radius: 12px;
   background: #e6e6e6;
   box-shadow: 7px 7px 15px #cdcdcd, -7px -7px 15px #ffffff;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 
 button:disabled {
   color: #c9c9c9;
-
   box-shadow: inset 7px 7px 15px #cdcdcd, inset -7px -7px 15px #ffffff;
+  transition: all ease-in-out 0.3s;
+}
+button:disabled:hover {
+  color: #c9c9c9;
+  box-shadow: inset 5px 5px 15px #cdcdcd, inset -5px -5px 15px #ffffff;
+}
+
+button:hover {
+  box-shadow: 4px 4px 15px #cdcdcd, -4px -4px 15px #ffffff;
 }
 
 #stop__button {
   margin-top: 1rem;
   width: 5rem;
-  color: #ae3131;
+  color: #966f6f;
 }
 
 #stop__button:disabled {
-  color: #966f6f;
+  color: #966f6fd3;
 }
 
 .center__stop {
@@ -109,11 +119,13 @@ button:disabled {
   border-radius: 12px;
   background: #e6e6e6;
   box-shadow: inset 7px 7px 15px #cdcdcd, inset -7px -7px 15px #ffffff;
+  cursor: pointer;
 }
 
 .progress__bar {
   background: linear-gradient(360deg, #2b9f4b, #34dcacfa);
   border-radius: 12px;
+  transition: all ease-in-out 0.03s;
 }
 
 #progress__fill {
