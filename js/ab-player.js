@@ -38,7 +38,7 @@ const checkMobile = () => {
   ).matches;
 
   if (isMobile) {
-    window.addEventListener("touchend", unlockIOSAudioPlayback);
+    playButton.disabled = false;
   }
 };
 
