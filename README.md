@@ -16,7 +16,7 @@ What's it for? One pratical reason is the side-by-side comparison of different a
 
 Built with only HTML, CSS, and Javascript.
 
-## Getting Started
+### Getting Started
 
 1. Simply add two audio files to the assets folder (HTML supports MP3, WAV, and OGG). The files must have the same duration to work correctly.
 2. Update ab-player.js with the location/filenames
@@ -28,7 +28,7 @@ Built with only HTML, CSS, and Javascript.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## License
+### License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 If you do use it, let me know - I'd love to see it in action!
