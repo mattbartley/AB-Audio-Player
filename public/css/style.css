@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.player__wrapper {
+  border-radius: 50px;
+  background: #e6e6e6;
+  box-shadow: 20px 20px 37px #cdcdcd, -20px -20px 37px #ffffff;
+  padding: 4vh 9vw 4.5vh 9vw;
+}
+
+.controls {
+  display: grid;
+  gap: 1vw;
+  align-content: center;
+  align-items: baseline;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  justify-items: center;
+}
+
+button {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  border: none;
+  color: #9b9b9b;
+  width: 5rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: #e6e6e6;
+  box-shadow: 7px 7px 15px #cdcdcd, -7px -7px 15px #ffffff;
+}
+
+button:disabled {
+  color: #c9c9c9;
+
+  box-shadow: inset 7px 7px 15px #cdcdcd, inset -7px -7px 15px #ffffff;
+}
+
+#stop__button {
+  margin-top: 1rem;
+  width: 5rem;
+  color: #ae3131;
+}
+
+#stop__button:disabled {
+  color: #966f6f;
+}
+
+.center__stop {
+  display: grid;
+  justify-content: center;
+}
+
+.progress__container {
+  display: inline-flex;
+  background: #a8a8a8;
+  height: 1rem;
+  width: 100%;
+  margin-bottom: 2.4rem;
+  border-radius: 10px;
+  border-radius: 12px;
+  background: #e6e6e6;
+  box-shadow: inset 7px 7px 15px #cdcdcd, inset -7px -7px 15px #ffffff;
+}
+
+.progress__bar {
+  background: linear-gradient(360deg, #2b9f4b, #34dcacfa);
+  border-radius: 12px;
+}
+
+#progress__fill {
+  width: 0%;
+}

@@ -2,80 +2,145 @@
 var soundA = document.createElement("audio");
 soundA.src = "./assets/before.wav";
 soundA.preload = "auto";
+soundA.setAttribute("hidden", "true");
+soundA.setAttribute("onplaying", "stepA()");
+document.body.append(soundA);
 
 var soundB = document.createElement("audio");
 soundB.src = "./assets/after.wav";
 soundB.preload = "auto";
+soundB.setAttribute("hidden", "true");
+soundB.setAttribute("onplaying", "stepB()");
+document.body.append(soundB);
 
 //Get button elements
 const aButton = document.getElementById("a__button");
 const bButton = document.getElementById("b__button");
 const playButton = document.getElementById("play__button");
 const stopButton = document.getElementById("stop__button");
+const progressBar = document.getElementById("progress__bar");
+const progressFill = document.getElementById("progress__fill");
+
+const playIcon = '<i class="fa-solid fa-play"></i>';
+const pauseIcon = '<i class="fa-solid fa-pause"></i>';
+const stopIcon = '<i class="fa-solid fa-stop"></i>';
 
 //Default loading state for each sound
 var soundAReady = false;
 var soundBReady = false;
 
 //When audio can play through (loaded), run the function to enable buttons
+//The canplaythrough event will fire every time the audio switches, so the !soundA/BReady
+//prevents additional checks
 soundA.oncanplaythrough = function () {
-  soundAReady = true;
-  audioIsReady();
+  if (!soundAReady) {
+    soundAReady = true;
+    audioIsReady();
+  }
 };
 soundB.oncanplaythrough = function () {
-  soundBReady = true;
-  audioIsReady();
+  if (!soundBReady) {
+    soundBReady = true;
+    audioIsReady();
+  }
 };
 
 // Check if both A & B are ready and enable the correct buttons
 function audioIsReady() {
   if (soundAReady && soundBReady) {
-    aButton.removeAttribute("disabled", "false");
-    playButton.removeAttribute("disabled", "false");
+    console.log("...audio loaded!");
+    playButton.disabled = false;
   } else {
-    console.log("not ready");
+    console.log("Audio loading...");
   }
 }
 
-//Play/Stop correct audio and toggle A/B and Play/Stop buttons
+const progress = document.getElementById("progress");
+// Listen for click on entire progress bar div (to allow skipping ahead)
+progress.addEventListener("click", function (event) {
+  // Get X coordinate of click in div
+  var rect = this.getBoundingClientRect();
+  // Convert click position to percentage value
+  var percentage = (event.clientX - rect.left) / this.offsetWidth;
+  // Seek to the percentage converted to seconds
+  soundA.currentTime = percentage * soundA.duration;
+  soundB.currentTime = percentage * soundB.duration;
+});
+
+//Frame animations for progress bar fill - converts to CSS percentage
+function stepA() {
+  progressFill.style.width =
+    ((soundA.currentTime / soundA.duration) * 100 || 0) + "%";
+  requestAnimationFrame(stepA);
+}
+function stepB() {
+  progressFill.style.width =
+    ((soundB.currentTime / soundB.duration) * 100 || 0) + "%";
+  requestAnimationFrame(stepB);
+}
+
+//Play/Stop correct audio and toggle A/B, Play/Pause, and Stop buttons
+const playPause = () => {
+  if (soundA.paused & soundB.paused) {
+    let soundATime = soundA.currentTime;
+    let soundBTime = soundB.currentTime;
+    if (soundATime >= soundBTime) {
+      soundA.play();
+      bButton.disabled = false;
+      aButton.disabled = true;
+      playButton.innerHTML = pauseIcon;
+    } else {
+      soundB.play();
+      bButton.disabled = true;
+      aButton.disabled = false;
+      playButton.innerHTML = pauseIcon;
+    }
+    stopButton.disabled = false;
+  } else {
+    playButton.innerHTML = playIcon;
+    soundA.pause();
+    soundB.pause();
+  }
+};
+
 const playSoundA = () => {
+  playButton.innerHTML = pauseIcon;
+  aButton.disabled = true;
+  bButton.disabled = false;
+  stopButton.disabled = false;
   if (soundB.currentTime > 0) {
     soundA.currentTime = soundB.currentTime;
     soundA.play();
     soundB.pause();
-    soundB.currentTime = 0;
   } else {
     soundA.play();
     soundB.pause();
   }
-  aButton.setAttribute("disabled", "true");
-  bButton.removeAttribute("disabled", "true");
-  playButton.setAttribute("disabled", "true");
-  stopButton.removeAttribute("disabled", "true");
 };
 
 const playSoundB = () => {
+  playButton.innerHTML = pauseIcon;
+  bButton.disabled = true;
+  aButton.disabled = false;
+
+  stopButton.disabled = false;
   if (soundA.currentTime > 0) {
     soundB.currentTime = soundA.currentTime;
     soundB.play();
     soundA.pause();
-    soundA.currentTime = 0;
   } else {
     soundB.play();
   }
-  bButton.setAttribute("disabled", "true");
-  aButton.removeAttribute("disabled", "true");
-  playButton.setAttribute("disabled", "true");
-  stopButton.removeAttribute("disabled", "true");
 };
 
 const stopSounds = () => {
+  playButton.innerHTML = playIcon;
+  aButton.disabled = false;
+  bButton.disabled = true;
+  playButton.disabled = false;
+  stopButton.disabled = true;
   soundA.pause();
   soundA.currentTime = 0;
   soundB.pause();
   soundB.currentTime = 0;
-  aButton.removeAttribute("disabled", "true");
-  bButton.removeAttribute("disabled", "true");
-  playButton.removeAttribute("disabled", "true");
-  stopButton.setAttribute("disabled", "true");
 };
