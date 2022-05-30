@@ -1,13 +1,13 @@
 //Set up audio elements
 var soundA = document.createElement("audio");
-soundA.src = "./assets/before.wav";
+soundA.src = "./assets/a.mp3";
 soundA.preload = "auto";
 soundA.setAttribute("hidden", "true");
 soundA.setAttribute("onplaying", "stepA()");
 document.body.append(soundA);
 
 var soundB = document.createElement("audio");
-soundB.src = "./assets/after.wav";
+soundB.src = "./assets/b.mp3";
 soundB.preload = "auto";
 soundB.setAttribute("hidden", "true");
 soundB.setAttribute("onplaying", "stepB()");
