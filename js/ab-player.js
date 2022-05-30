@@ -15,6 +15,33 @@ soundB.setAttribute("hidden", "true");
 soundB.setAttribute("onplaying", "stepB()");
 document.body.append(soundB);
 
+var unlockIOSAudioPlayback = function () {
+  var buffer = ctx.createBuffer(1, 22050, 22050);
+  var source = ctx.createBufferSource();
+  source.buffer = buffer;
+
+  source.connect(ctx.destination);
+  if (typeof source.noteOn === "undefined") {
+    source.start(0);
+  } else {
+    source.noteOn(0);
+  }
+  source.onended = function () {
+    debug("iOS unlock state (onended): " + source);
+    window.removeEventListener("touchend", unlockIOSAudioPlayback);
+  };
+};
+
+const checkMobile = () => {
+  let isMobile = window.matchMedia(
+    "only screen and (max-width: 760px)"
+  ).matches;
+
+  if (isMobile) {
+    window.addEventListener("touchend", unlockIOSAudioPlayback);
+  }
+};
+
 //Get button elements
 const aButton = document.getElementById("a__button");
 const bButton = document.getElementById("b__button");
