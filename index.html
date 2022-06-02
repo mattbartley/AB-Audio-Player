@@ -21,8 +21,13 @@
     <meta property="og:image" content="image.png" />
 
     <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -34,11 +39,20 @@
   </head>
 
   <body>
+    <div id="intro">
+      <h1>A/B Player</h1>
+      <div id="tagline">
+        A zero-dependency HTML, CSS, Javascript audio player.
+      </div>
+
+      <a href=""><i class="fa-brands fa-github"></i> Open Source on GitHub</a>
+      <p>Toggle between two audio files to compare them side-by-side.</p>
+    </div>
     <div class="player__wrapper">
       <div class="progress__container" id="progress">
         <div class="progress__bar" id="progress__fill"></div>
       </div>
-      <div class="controls">
+      <div class="ab__controls">
         <button
           class="ab__button"
           id="a__button"
@@ -46,14 +60,6 @@
           disabled="true"
         >
           A
-        </button>
-        <button
-          class="play__pause__button"
-          id="play__button"
-          onclick="playPause()"
-          disabled="true"
-        >
-          <i class="fa-solid fa-play"></i>
         </button>
         <button
           class="ab__button"
@@ -64,7 +70,15 @@
           B
         </button>
       </div>
-      <div class="center__stop">
+      <div class="play__stop__controls">
+        <button
+          class="play__pause__button"
+          id="play__button"
+          onclick="playPause()"
+          disabled="true"
+        >
+          <i class="fa-solid fa-play"></i>
+        </button>
         <button
           class="play__pause__button"
           id="stop__button"
