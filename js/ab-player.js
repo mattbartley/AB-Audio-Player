@@ -15,7 +15,6 @@ soundB.setAttribute("hidden", "true");
 soundB.setAttribute("onplaying", "stepB()");
 document.body.append(soundB);
 
-
 //Get button elements
 const aButton = document.getElementById("a__button");
 const bButton = document.getElementById("b__button");
@@ -28,8 +27,13 @@ const playIcon = '<i class="fa-solid fa-play"></i>';
 const pauseIcon = '<i class="fa-solid fa-pause"></i>';
 const stopIcon = '<i class="fa-solid fa-stop"></i>';
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    playButton.disabled = false;
+//Check for mobile to enable audio playback without waiting for download status.
+if (
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
+  playButton.disabled = false;
 }
 
 //Default loading state for each sound
@@ -56,6 +60,7 @@ soundB.oncanplaythrough = function () {
 function audioIsReady() {
   if (soundAReady && soundBReady) {
     console.log("...audio loaded!");
+    aButton.disabled = false;
     playButton.disabled = false;
   } else {
     console.log("Audio loading...");

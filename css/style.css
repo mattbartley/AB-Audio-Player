@@ -13,6 +13,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: "Lato", sans-serif;
 }
 img,
 picture,
@@ -38,32 +39,76 @@ h6 {
   overflow-wrap: break-word;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: #e6e6e6;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 2fr 4fr;
+}
+
+#intro {
+  max-width: 90vw;
+  margin-bottom: 3rem;
   align-content: center;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  align-self: end;
+  text-align: center;
+  color: #393939;
+
+  font-size: 1.2em;
+}
+
+#intro h1 {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+#intro p {
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: #606060;
+}
+#tagline {
+  font-size: 0.78em;
+  margin-bottom: 0px;
+  color: #606060;
+}
+
+#intro a {
+  transition: all 0.3s;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #089aa1;
+}
+
+#intro a:hover {
+  opacity: 0.8;
 }
 
 .player__wrapper {
   border-radius: 50px;
   background: #e6e6e6;
   box-shadow: 20px 20px 37px #cdcdcd, -20px -20px 37px #ffffff;
-  padding: 4vh 9vw 4.5vh 9vw;
+  padding: 4vh 5.5vw 4.5vh 5.5vw;
+  max-width: 500px;
+  align-self: start;
+  margin: 0 2vw;
 }
 
-.controls {
+.ab__controls {
   display: grid;
-  gap: 1vw;
   align-content: center;
   align-items: baseline;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   justify-items: center;
+  width: 100%;
 }
 
 button {
@@ -94,19 +139,38 @@ button:hover {
   box-shadow: 4px 4px 15px #cdcdcd, -4px -4px 15px #ffffff;
 }
 
+#a__button {
+  width: 8rem;
+  border-radius: 12px 0 0 12px;
+  justify-self: self-end;
+}
+
+#b__button {
+  width: 8rem;
+  border-radius: 0 12px 12px 0;
+  justify-self: self-start;
+}
+
+#play__button {
+  justify-self: self-end;
+}
+
 #stop__button {
-  margin-top: 1rem;
   width: 5rem;
   color: #966f6f;
+  justify-self: self-start;
 }
 
 #stop__button:disabled {
   color: #966f6fd3;
 }
 
-.center__stop {
+.play__stop__controls {
+  margin-top: 1rem;
   display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
+  grid-gap: 1rem;
 }
 
 .progress__container {
@@ -120,10 +184,11 @@ button:hover {
   background: #e6e6e6;
   box-shadow: inset 7px 7px 15px #cdcdcd, inset -7px -7px 15px #ffffff;
   cursor: pointer;
+  align-self: center;
 }
 
 .progress__bar {
-  background: linear-gradient(360deg, #2b9f4b, #34dcacfa);
+  background: linear-gradient(360deg, #2da87b, #34dcacfa);
   border-radius: 12px;
   transition: all ease-in-out 0.03s;
 }
