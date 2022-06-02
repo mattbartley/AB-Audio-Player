@@ -72,6 +72,7 @@ body {
 #intro p {
   margin-top: 20px;
   font-size: 0.85em;
+  color: #606060;
 }
 #tagline {
   font-size: 0.78em;
@@ -97,6 +98,7 @@ body {
   padding: 4vh 5.5vw 4.5vh 5.5vw;
   max-width: 500px;
   align-self: start;
+  margin: 0 2vw;
 }
 
 .ab__controls {
@@ -182,6 +184,7 @@ button:hover {
   background: #e6e6e6;
   box-shadow: inset 7px 7px 15px #cdcdcd, inset -7px -7px 15px #ffffff;
   cursor: pointer;
+  align-self: center;
 }
 
 .progress__bar {
