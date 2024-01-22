@@ -13,7 +13,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 img,
 picture,
@@ -47,58 +47,21 @@ a {
 body {
   background: #e6e6e6;
   display: grid;
-  justify-items: center;
-  grid-template-rows: 2fr 4fr;
-}
-
-#intro {
-  max-width: 90vw;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
   align-content: center;
-  justify-content: space-around;
-  align-items: center;
-  align-self: end;
-  text-align: center;
-  color: #393939;
-
-  font-size: 1.2em;
-}
-
-#intro h1 {
-  font-size: 1.4em;
-  font-weight: 700;
-}
-
-#intro p {
-  margin-top: 20px;
-  font-size: 0.85em;
-  color: #606060;
-}
-#tagline {
-  font-size: 0.78em;
-  margin-bottom: 0px;
-  color: #606060;
-}
-
-#intro a {
-  transition: all 0.3s;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #089aa1;
-}
-
-#intro a:hover {
-  opacity: 0.8;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .player__wrapper {
   border-radius: 50px;
   background: #e6e6e6;
   box-shadow: 20px 20px 37px #cdcdcd, -20px -20px 37px #ffffff;
-  padding: 4vh 5.5vw 4.5vh 5.5vw;
+  padding: 4rem 3rem;
   max-width: 500px;
-  align-self: start;
-  margin: 0 2vw;
+  margin: 20px 2vw;
 }
 
 .ab__controls {
@@ -139,29 +102,29 @@ button:hover {
   box-shadow: 4px 4px 15px #cdcdcd, -4px -4px 15px #ffffff;
 }
 
-#a__button {
+.a__button {
   width: 8rem;
   border-radius: 12px 0 0 12px;
   justify-self: self-end;
 }
 
-#b__button {
+.b__button {
   width: 8rem;
   border-radius: 0 12px 12px 0;
   justify-self: self-start;
 }
 
-#play__button {
+.play__button {
   justify-self: self-end;
 }
 
-#stop__button {
+.stop__button {
   width: 5rem;
   color: #966f6f;
   justify-self: self-start;
 }
 
-#stop__button:disabled {
+.stop__button:disabled {
   color: #966f6fd3;
 }
 
@@ -185,6 +148,7 @@ button:hover {
   box-shadow: inset 7px 7px 15px #cdcdcd, inset -7px -7px 15px #ffffff;
   cursor: pointer;
   align-self: center;
+  overflow: hidden;
 }
 
 .progress__bar {
@@ -193,6 +157,6 @@ button:hover {
   transition: all ease-in-out 0.03s;
 }
 
-#progress__fill {
+.progress__fill {
   width: 0%;
 }

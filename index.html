@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>A/B Player</title>
     <meta
       name="description"
       content="Toggle between two audio files to compare"
     />
     <meta name="author" content="Matt Bartley" />
-
     <meta property="og:title" content="A/B Audio Player" />
     <meta property="og:type" content="website" />
     <meta
@@ -39,52 +36,44 @@
   </head>
 
   <body>
-    <div id="intro">
-      <h1>A/B Player</h1>
-      <div id="tagline">
-        A zero-dependency HTML, CSS, Javascript audio player.
-      </div>
-
-      <a href="https://github.com/mattbartley/AB-Audio-Player" target="_blank"><i class="fa-brands fa-github"></i> Open Source on GitHub</a>
-      <p>Toggle between two audio files to compare them side-by-side.</p>
-    </div>
-    <div class="player__wrapper">
-      <div class="progress__container" id="progress">
-        <div class="progress__bar" id="progress__fill"></div>
+    <div
+      class="player__wrapper"
+      data-audio-a="./assets/sound1-a.mp3"
+      data-audio-b="./assets/sound1-b.mp3"
+    >
+      <div class="progress__container progress">
+        <div class="progress__bar progress__fill"></div>
       </div>
       <div class="ab__controls">
-        <button
-          class="ab__button"
-          id="a__button"
-          onclick="playSoundA()"
-          disabled="true"
-        >
-          A
-        </button>
-        <button
-          class="ab__button"
-          id="b__button"
-          onclick="playSoundB()"
-          disabled="true"
-        >
-          B
-        </button>
+        <button class="ab__button a__button" disabled="true">A</button>
+        <button class="ab__button b__button" disabled="true">B</button>
       </div>
       <div class="play__stop__controls">
-        <button
-          class="play__pause__button"
-          id="play__button"
-          onclick="playPause()"
-          disabled="true"
-        >
+        <button class="play__pause__button play__button" disabled="true">
           <i class="fa-solid fa-play"></i>
         </button>
-        <button
-          class="play__pause__button"
-          id="stop__button"
-          onclick="stopSounds()"
-          disabled="true"
-        >
+        <button class="play__pause__button stop__button" disabled="true">
+          <i class="fa-solid fa-stop"></i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="player__wrapper"
+      data-audio-a="./assets/sound2-a.mp3"
+      data-audio-b="./assets/sound2-b.mp3"
+    >
+      <div class="progress__container progress">
+        <div class="progress__bar progress__fill"></div>
+      </div>
+      <div class="ab__controls">
+        <button class="ab__button a__button" disabled="true">A</button>
+        <button class="ab__button b__button" disabled="true">B</button>
+      </div>
+      <div class="play__stop__controls">
+        <button class="play__pause__button play__button" disabled="true">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <button class="play__pause__button stop__button" disabled="true">
           <i class="fa-solid fa-stop"></i>
         </button>
       </div>
