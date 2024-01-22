@@ -20,11 +20,17 @@ Built with only HTML, CSS, and Javascript.
 
 ### Getting Started
 
-1. Simply add two audio files to the assets folder (HTML supports MP3, WAV, and OGG). The files must have the same duration to work correctly.
-2. Update ab-player.js with the location/filenames
-   ```js
-   soundA.src = "./assets/[YOUR_FILE_A].mp3";
-   soundB.src = "./assets/[YOUR_FILE_B].mp3";
+1. Simply add audio files to the assets folder (HTML supports MP3, WAV, and OGG). The files must have the same duration to work correctly.
+2. Update index.html player wrapper div(s) attribues 'data-audio-a' and 'data-audio-b' with the location/filenames for each player. Example for two players:
+   ```html
+   <div class="player__wrapper"
+        data-audio-a="./assets/sound1-a.mp3"
+        data-audio-b="./assets/sound1-b.mp3"
+   >
+   <div class="player__wrapper"
+        data-audio-a="./assets/sound2-a.mp3"
+        data-audio-b="./assets/sound2-b.mp3"
+   >
    ```
 3. There are some caveats with different browsers handling how the audio file is preloaded, muted, etc. Test thoroughly for production use.
 
