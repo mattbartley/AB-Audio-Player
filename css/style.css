@@ -47,20 +47,64 @@ a {
 body {
   background: #e6e6e6;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  align-content: center;
   justify-items: center;
-  margin: 0;
-  padding: 0;
+  grid-template-rows: 2fr 4fr;
+}
+
+#intro {
+  max-width: 90vw;
+  margin-bottom: 3rem;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  align-self: end;
+  text-align: center;
+  color: #393939;
+
+  font-size: 1.2em;
+}
+
+#intro h1 {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+#intro p {
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: #606060;
+}
+#tagline {
+  font-size: 0.78em;
+  margin-bottom: 0px;
+  color: #606060;
+}
+
+#intro a {
+  transition: all 0.3s;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #089aa1;
+}
+
+#intro a:hover {
+  opacity: 0.8;
+}
+
+.players {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
 }
 
 .player__wrapper {
   border-radius: 50px;
   background: #e6e6e6;
   box-shadow: 20px 20px 37px #cdcdcd, -20px -20px 37px #ffffff;
-  padding: 4rem 3rem;
+  padding: 4vh 5.5vw 4.5vh 5.5vw;
   max-width: 500px;
+  align-self: start;
   margin: 20px 2vw;
 }
 
@@ -159,4 +203,24 @@ button:hover {
 
 .progress__fill {
   width: 0%;
+}
+
+@media screen (min-width: 768px) {
+  body {
+    grid-template-rows: 1fr 1fr;
+  }
+
+  #intro {
+    margin-bottom: 0;
+  }
+
+  .players {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .players {
+    grid-template-columns: 1fr;
+  }
 }
