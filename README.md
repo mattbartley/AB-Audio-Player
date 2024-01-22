@@ -21,7 +21,7 @@ Built with only HTML, CSS, and Javascript.
 ### Getting Started
 
 1. Simply add audio files to the assets folder (HTML supports MP3, WAV, and OGG). The files must have the same duration to work correctly.
-2. Update index.html player wrapper div(s) attribues 'data-audio-a' and 'data-audio-b' with the location/filenames for each player. Example for two players:
+2. Update index.html player__wrapper div's attributes 'data-audio-a' and 'data-audio-b' with the location/filenames for each player. Example for two players:
    ```html
    <div class="player__wrapper"
         data-audio-a="./assets/sound1-a.mp3"
