@@ -13,7 +13,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 img,
 picture,
@@ -91,6 +91,13 @@ body {
   opacity: 0.8;
 }
 
+.players {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
 .player__wrapper {
   border-radius: 50px;
   background: #e6e6e6;
@@ -98,7 +105,7 @@ body {
   padding: 4vh 5.5vw 4.5vh 5.5vw;
   max-width: 500px;
   align-self: start;
-  margin: 0 2vw;
+  margin: 20px 2vw;
 }
 
 .ab__controls {
@@ -139,29 +146,29 @@ button:hover {
   box-shadow: 4px 4px 15px #cdcdcd, -4px -4px 15px #ffffff;
 }
 
-#a__button {
+.a__button {
   width: 8rem;
   border-radius: 12px 0 0 12px;
   justify-self: self-end;
 }
 
-#b__button {
+.b__button {
   width: 8rem;
   border-radius: 0 12px 12px 0;
   justify-self: self-start;
 }
 
-#play__button {
+.play__button {
   justify-self: self-end;
 }
 
-#stop__button {
+.stop__button {
   width: 5rem;
   color: #966f6f;
   justify-self: self-start;
 }
 
-#stop__button:disabled {
+.stop__button:disabled {
   color: #966f6fd3;
 }
 
@@ -185,6 +192,7 @@ button:hover {
   box-shadow: inset 7px 7px 15px #cdcdcd, inset -7px -7px 15px #ffffff;
   cursor: pointer;
   align-self: center;
+  overflow: hidden;
 }
 
 .progress__bar {
@@ -193,6 +201,26 @@ button:hover {
   transition: all ease-in-out 0.03s;
 }
 
-#progress__fill {
+.progress__fill {
   width: 0%;
+}
+
+@media screen (min-width: 768px) {
+  body {
+    grid-template-rows: 1fr 1fr;
+  }
+
+  #intro {
+    margin-bottom: 0;
+  }
+
+  .players {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .players {
+    grid-template-columns: 1fr;
+  }
 }
