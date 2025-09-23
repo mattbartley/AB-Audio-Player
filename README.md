@@ -1,4 +1,5 @@
 # AB-Audio-Player
+
 <div id="top"></div>
 
   <p align="center">
@@ -20,20 +21,23 @@ Built with only HTML, CSS, and Javascript.
 
 ### Getting Started
 
-1. Simply add two audio files to the assets folder (HTML supports MP3, WAV, and OGG). The files must have the same duration to work correctly.
-2. Update ab-player.js with the location/filenames
-   ```js
-   soundA.src = "./assets/[YOUR_FILE_A].mp3";
-   soundB.src = "./assets/[YOUR_FILE_B].mp3";
+1. Simply add audio files to the assets folder (HTML supports MP3, WAV, and OGG). The files must have the same duration to work correctly.
+2. Update index.html player\_\_wrapper div's attributes 'data-audio-a' and 'data-audio-b' with the location/filenames for each player. Example for two players:
+   ```html
+   <div class="player__wrapper" data-audio-a="./assets/sound1-a.mp3" data-audio-b="./assets/sound1-b.mp3">
+     <div class="player__wrapper" data-audio-a="./assets/sound2-a.mp3" data-audio-b="./assets/sound2-b.mp3"></div>
+   </div>
    ```
 3. There are some caveats with different browsers handling how the audio file is preloaded, muted, etc. Test thoroughly for production use.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### Note on VBR (Variable Bit Rate) MP3s
+
+VBR MP3s may cause the currentTime to be inaccurate which causes the progress to jump around. The files will play, but not offer a good comparison, especially with longer files. For more information, see [this issue](https://github.com/mattbartley/AB-Audio-Player/issues/8). Thanks to @[BenjaminNavarro](https://github.com/BenjaminNavarro) for reporting and troubleshooting!
+
 ### License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-If you do use it, let me know - I'd love to see it in action!
+Distributed under the MIT License. See `LICENSE.txt` for more information. If you do use it, let me know - I'd love to see it in action!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
